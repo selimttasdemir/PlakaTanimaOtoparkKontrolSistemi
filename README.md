@@ -6,24 +6,13 @@ Bu proje, bir otopark giriş/çıkış kontrol sistemi geliştirerek araçların
 
 * Python 3.x
 * OpenCV
+* PyQT
 * pytesseract (OCR)
 * EasyOCR
 * datetime
 * os
 * tkinter
 * PIL (Pillow)
-
-## 🗂️ Proje Yapısı
-
-```
-├── otopark_plaka_sistemi.py
-├── utils/
-│   └── image_processing.py
-├── assets/
-│   └── screenshot.png
-├── README.md
-└── requirements.txt
-```
 
 ## 🚀 Kurulumu
 
