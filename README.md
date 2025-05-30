@@ -28,14 +28,14 @@ Bu proje, bir otopark giriş/çıkış kontrol sistemi geliştirerek araçların
 ## 🚀 Kurulumu
 
 ```bash
-git clone https://github.com/kullaniciAdi/otopark-plaka-sistemi.git
-cd otopark-plaka-sistemi
+git clone https://github.com/selimttasdemir/PlakaTanimaOtoparkKontrolSistemi.git
+cd PlakaTanimaOtoparkKontrolSistemi
 ```
 
 ## 🧪 Kullanım
 
 ```bash
-python otopark_plaka_sistemi.py
+python plaka_arayuz.py
 ```
 
 Arayüz açıldığında:
@@ -43,8 +43,6 @@ Arayüz açıldığında:
 * Görüntüden plaka tanıma yapılır
 * Giriş/çıkış saatleri otomatik olarak kaydedilir
 * GUI üzerinden anlık doluluk oranı görüntülenir
-
-## 📸 Ekran Görüntüsü
 
 ## 💡 Özellikler
 
