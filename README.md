@@ -29,7 +29,7 @@ python plaka_arayuz.py
 
 Arayüz açıldığında:
 
-<img src="plaka_tanima.gif" width="500" />
+<img src="plaka_tanima.gif" width="800" />
 
 * Görüntüden plaka tanıma yapılır
 * Giriş/çıkış saatleri otomatik olarak kaydedilir
