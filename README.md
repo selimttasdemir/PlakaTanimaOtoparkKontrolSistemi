@@ -29,6 +29,8 @@ python plaka_arayuz.py
 
 Arayüz açıldığında:
 
+<img src="plaka_tanima.gif" width="500" />
+
 * Görüntüden plaka tanıma yapılır
 * Giriş/çıkış saatleri otomatik olarak kaydedilir
 * GUI üzerinden anlık doluluk oranı görüntülenir

@@ -1,5 +1,9 @@
 import os
+# OpenCV ve PyQt çakışmasını önlemek için Qt eklenti yolunu temizle/zorla
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+os.environ['QT_QPA_PLATFORM'] = 'xcb'
+if 'QT_QPA_PLATFORM_PLUGIN_PATH' in os.environ:
+    del os.environ['QT_QPA_PLATFORM_PLUGIN_PATH']
 
 import sys
 import cv2
@@ -186,7 +190,7 @@ class PlakaArayuz(QMainWindow):
             if not self.cap.isOpened():
                 # USB bağlantısı başarısız olursa WiFi bağlantısını dene
                 urls = [
-                    f"http://{ip}:{port}",f"http://192.168.1.11:4747"
+                    f"http://{ip}:{port}", f"http://192.168.1.11:4747"
                 ]
                 
                 connected = False
@@ -203,7 +207,7 @@ class PlakaArayuz(QMainWindow):
                     except Exception as e:
                         print(f"URL deneme hatası ({url}): {e}")
                     finally:
-                        if not connected:
+                        if not connected and self.cap is not None:
                             self.cap.release()
 
                 if not connected:
@@ -223,7 +227,7 @@ class PlakaArayuz(QMainWindow):
                         "5. Güvenlik duvarı ayarlarını kontrol edin")
                     return
 
-        if self.cap.isOpened():
+        if self.cap and self.cap.isOpened():
             try:
                 # Kamera ayarlarını optimize et
                 self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -297,7 +301,8 @@ class PlakaArayuz(QMainWindow):
                 QMessageBox.warning(self, "Hata", "Kamera bağlantısı koptu!")
         except Exception as e:
             print(f"Frame güncelleme hatası: {e}")
-            self.cap.release()
+            if self.cap:
+                self.cap.release()
             self.timer.stop()
             QMessageBox.warning(self, "Hata", f"Kamera hatası: {str(e)}")
 
@@ -334,7 +339,8 @@ class PlakaArayuz(QMainWindow):
                 break
 
     def closeEvent(self, event):
-        self.cap.release()
+        if self.cap:
+            self.cap.release()
         event.accept()
 
 if __name__ == '__main__':
